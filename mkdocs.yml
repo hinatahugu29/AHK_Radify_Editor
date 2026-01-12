@@ -1,5 +1,5 @@
-site_name: Radify Menu Editor ドキュメント
-site_description: AutoHotkey v2製リングメニューを完全GUI化する統合開発環境
+site_name: Radify Menu Editor Documentation
+site_description: A visual IDE for creating AutoHotkey v2 ring menus without coding
 site_author: hinatahugu29
 site_url: https://ahk-radify-editor.readthedocs.io/
 
@@ -8,24 +8,24 @@ repo_url: https://github.com/hinatahugu29/AHK_Radify_Editor
 
 theme:
   name: material
-  language: ja
+  language: en
   palette:
-    # ライトモード
+    # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: orange
       accent: deep orange
       toggle:
         icon: material/brightness-7
-        name: ダークモードに切り替え
-    # ダークモード
+        name: Switch to dark mode
+    # Dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: orange
       accent: deep orange
       toggle:
         icon: material/brightness-4
-        name: ライトモードに切り替え
+        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.tracking
@@ -57,30 +57,92 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: ja
+      lang:
+        - en
+        - ja
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+          nav_translations:
+            Home: Home
+            Getting Started: Getting Started
+            Installation: Installation
+            Quick Start: Quick Start
+            User Guide: User Guide
+            Basic Usage: Basic Usage
+            Editing Structure: Editing Menu Structure
+            Actions: Action Settings
+            Icons & Visuals: Icons & Visuals
+            Export: Script Export
+            Reference: Reference
+            Config Format: Configuration File Format
+            Templates: Templates
+            Modules: Module Structure
+            Advanced: Advanced Usage
+            Custom Actions: Custom Actions
+            Multiple Menus: Managing Multiple Menus
+            Troubleshooting: Troubleshooting
+            Technical Spec: Technical Specifications
+        - locale: ja
+          name: 日本語
+          build: true
+          nav_translations:
+            Home: ホーム
+            Getting Started: はじめに
+            Installation: インストール
+            Quick Start: クイックスタート
+            User Guide: 使い方ガイド
+            Basic Usage: 基本操作
+            Editing Structure: メニュー構造の編集
+            Actions: アクションの設定
+            Icons & Visuals: アイコンとビジュアル
+            Export: スクリプト出力
+            Reference: リファレンス
+            Config Format: 設定ファイル形式
+            Templates: テンプレート
+            Modules: モジュール構成
+            Advanced: 高度な使い方
+            Custom Actions: カスタムアクション
+            Multiple Menus: 複数メニューの管理
+            Troubleshooting: トラブルシューティング
+            Technical Spec: 技術仕様
 
 nav:
-  - ホーム: index.md
-  - はじめに:
-      - インストール: getting-started/installation.md
-      - クイックスタート: getting-started/quickstart.md
-  - 使い方ガイド:
-      - 基本操作: user-guide/basic-usage.md
-      - メニュー構造の編集: user-guide/editing-structure.md
-      - アクションの設定: user-guide/actions.md
-      - アイコンとビジュアル: user-guide/icons-visuals.md
-      - スクリプト出力: user-guide/export.md
-  - リファレンス:
-      - 設定ファイル形式: reference/config-format.md
-      - テンプレート: reference/templates.md
-      - モジュール構成: reference/modules.md
-  - 高度な使い方:
-      - カスタムアクション: advanced/custom-actions.md
-      - 複数メニューの管理: advanced/multiple-menus.md
-      - トラブルシューティング: advanced/troubleshooting.md
-  - 技術仕様: technical-spec.md
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Quick Start: getting-started/quickstart.md
+  - User Guide:
+      - Basic Usage: user-guide/basic-usage.md
+      - Editing Structure: user-guide/editing-structure.md
+      - Actions: user-guide/actions.md
+      - Icons & Visuals: user-guide/icons-visuals.md
+      - Export: user-guide/export.md
+  - Reference:
+      - Config Format: reference/config-format.md
+      - Templates: reference/templates.md
+      - Modules: reference/modules.md
+  - Advanced:
+      - Custom Actions: advanced/custom-actions.md
+      - Multiple Menus: advanced/multiple-menus.md
+      - Troubleshooting: advanced/troubleshooting.md
+  - Technical Spec: technical-spec.md
 
 extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 日本語
+      link: /ja/
+      lang: ja
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/hinatahugu29
