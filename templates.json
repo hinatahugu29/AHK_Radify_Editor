@@ -1,0 +1,646 @@
+[
+    {
+        "name": "🚀 アプリ起動/切替 (基本)",
+        "code": "LaunchOrActivate(\"ウィンドウタイトル\", \"C:\\\\Path\\\\To\\\\App.exe\")"
+    },
+    {
+        "name": "🚀 アプリ起動/切替 (相対パス)",
+        "code": "LaunchOrActivate(\"ウィンドウタイトル\", A_ScriptDir \"\\\\app.exe\")"
+    },
+    {
+        "name": "🚀 アプリ起動/切替 (最小化)",
+        "code": "LaunchOrActivate(\"ウィンドウタイトル\", \"C:\\\\Path\\\\To\\\\App.exe\", \"Min\")"
+    },
+    {
+        "name": "🚀 アプリ起動/切替 (最大化)",
+        "code": "LaunchOrActivate(\"ウィンドウタイトル\", \"C:\\\\Path\\\\To\\\\App.exe\", \"Max\")"
+    },
+    {
+        "name": "🌐 Google検索",
+        "code": "Run(\"https://www.google.com/search?q=検索ワード\")"
+    },
+    {
+        "name": "📧 メール作成",
+        "code": "Run(\"mailto:example@example.com\")"
+    },
+    {
+        "name": "📂 フォルダを開く",
+        "code": "Run(\"C:\\\\Users\")"
+    },
+    {
+        "name": "🗑️ ごみ箱",
+        "code": "Run(\"shell:RecycleBinFolder\")"
+    },
+    {
+        "name": "📥 ダウンロード",
+        "code": "Run(\"shell:Downloads\")"
+    },
+    {
+        "name": "🪟 アクティブ最大化",
+        "code": "WinMaximize(\"A\")"
+    },
+    {
+        "name": "🪟 アクティブ最小化",
+        "code": "WinMinimize(\"A\")"
+    },
+    {
+        "name": "❌ ウィンドウを閉じる",
+        "code": "WinClose(\"A\")"
+    },
+    {
+        "name": "📌 最前面固定トグル",
+        "code": "WinSetAlwaysOnTop(-1, \"A\")"
+    },
+    {
+        "name": "👻 透明度設定 (50%)",
+        "code": "WinSetTransparent(128, \"A\")"
+    },
+    {
+        "name": "👻 透明解除",
+        "code": "WinSetTransparent(\"Off\", \"A\")"
+    },
+    {
+        "name": "◀️ ウィンドウを左半分",
+        "code": "Send(\"#Left\")"
+    },
+    {
+        "name": "▶️ ウィンドウを右半分",
+        "code": "Send(\"#Right\")"
+    },
+    {
+        "name": "🔼 ウィンドウを上半分",
+        "code": "Send(\"#Up\")"
+    },
+    {
+        "name": "🔽 ウィンドウを下半分",
+        "code": "Send(\"#Down\")"
+    },
+    {
+        "name": "🖥️ 隣のモニターへ (左)",
+        "code": "Send(\"#+Left\")"
+    },
+    {
+        "name": "🖥️ 隣のモニターへ (右)",
+        "code": "Send(\"#+Right\")"
+    },
+    {
+        "name": "🏢 すべて最小化",
+        "code": "Send(\"#m\")"
+    },
+    {
+        "name": "🔊 音量アップ",
+        "code": "Send(\"{Volume_Up}\")"
+    },
+    {
+        "name": "🔉 音量ダウン",
+        "code": "Send(\"{Volume_Down}\")"
+    },
+    {
+        "name": "🔇 消音(ミュート)",
+        "code": "Send(\"{Volume_Mute}\")"
+    },
+    {
+        "name": "⏯️ 再生/一時停止",
+        "code": "Send(\"{Media_Play_Pause}\")"
+    },
+    {
+        "name": "⏭️ 次の曲",
+        "code": "Send(\"{Media_Next}\")"
+    },
+    {
+        "name": "⏮️ 前の曲",
+        "code": "Send(\"{Media_Prev}\")"
+    },
+    {
+        "name": "💤 スリープ",
+        "code": "DllCall(\"PowrProf\\\\SetSuspendState\", \"Int\", 0, \"Int\", 0, \"Int\", 0)"
+    },
+    {
+        "name": "🔒 ロック",
+        "code": "DllCall(\"user32\\\\LockWorkStation\")"
+    },
+    {
+        "name": "🔴 シャットダウン",
+        "code": "Shutdown(1)"
+    },
+    {
+        "name": "🔄 OS再起動",
+        "code": "Shutdown(2)"
+    },
+    {
+        "name": "📋 プレーンテキスト貼り付け",
+        "code": "A_Clipboard := A_Clipboard, Send(\"^v\")"
+    },
+    {
+        "name": "⌨️ 定型文入力",
+        "code": "SendText(\"ここに定型文を入力\")"
+    },
+    {
+        "name": "🕐 現在時刻",
+        "code": "SendText(FormatTime(, \"HH:mm\"))"
+    },
+    {
+        "name": "📅 今日の日付",
+        "code": "SendText(FormatTime(, \"yyyy-MM-dd\"))"
+    },
+    {
+        "name": "💾 保存 (Ctrl+S)",
+        "code": "Send(\"^s\")"
+    },
+    {
+        "name": "🔄 AHKリロード",
+        "code": "Reload()"
+    },
+    {
+        "name": "❌ メニューを閉じる (簡易)",
+        "code": "CloseMenu"
+    },
+    {
+        "name": "❌ メニューを閉じる (関数)",
+        "code": "Radify.Close(MenuName)"
+    },
+    {
+        "name": "↩️ 前のメニューに戻る",
+        "code": "BackMenu"
+    },
+	    {
+        "name": "↩️ 前のメニューに戻る",
+        "code": "CloseMenu"
+    },
+	    {
+        "name": "⬅️ 前のリングへ",
+        "code": "PrevRing"
+    },
+    {
+        "name": "➡️ 次のリングへ",
+        "code": "NextRing"
+    },
+    {
+        "name": "📂 サブメニューを開く",
+        "code": "Radify.Show(\"サブメニュー名\")"
+    },
+    {
+        "name": "📸 スクリーンショット (全画面)",
+        "code": "Send(\"{PrintScreen}\")"
+    },
+    {
+        "name": "📸 スクリーンショット (アクティブ)",
+        "code": "Send(\"!{PrintScreen}\")"
+    },
+    {
+        "name": "📸 切り取り&スケッチ",
+        "code": "Send(\"#+s\")"
+    },
+    {
+        "name": "📋 クリップボード履歴",
+        "code": "Send(\"#v\")"
+    },
+    {
+        "name": "📋 クリップボードをクリア",
+        "code": "A_Clipboard := \"\""
+    },
+    {
+        "name": "🔍 タスクマネージャー",
+        "code": "Run(\"taskmgr.exe\")"
+    },
+    {
+        "name": "⚙️ 設定",
+        "code": "Run(\"ms-settings:\")"
+    },
+    {
+        "name": "⚙️ コントロールパネル",
+        "code": "Run(\"control\")"
+    },
+    {
+        "name": "🖥️ デスクトップを表示",
+        "code": "Send(\"#d\")"
+    },
+    {
+        "name": "🖥️ 新しい仮想デスクトップ",
+        "code": "Send(\"#^d\")"
+    },
+    {
+        "name": "🖥️ 仮想デスクトップを閉じる",
+        "code": "Send(\"#^{F4}\")"
+    },
+    {
+        "name": "🖥️ 仮想デスクトップ切替 (左)",
+        "code": "Send(\"#^Left\")"
+    },
+    {
+        "name": "🖥️ 仮想デスクトップ切替 (右)",
+        "code": "Send(\"#^Right\")"
+    },
+    {
+        "name": "🔎 検索 (Windows)",
+        "code": "Send(\"#s\")"
+    },
+    {
+        "name": "🔎 ファイル検索 (エクスプローラー)",
+        "code": "Send(\"#e\"), Sleep(200), Send(\"^f\")"
+    },
+    {
+        "name": "🌐 新しいタブ (ブラウザ)",
+        "code": "Send(\"^t\")"
+    },
+    {
+        "name": "🌐 タブを閉じる (ブラウザ)",
+        "code": "Send(\"^w\")"
+    },
+    {
+        "name": "🌐 閉じたタブを復元",
+        "code": "Send(\"^+t\")"
+    },
+    {
+        "name": "🌐 次のタブ",
+        "code": "Send(\"^{Tab}\")"
+    },
+    {
+        "name": "🌐 前のタブ",
+        "code": "Send(\"^+{Tab}\")"
+    },
+    {
+        "name": "🌐 ページ更新",
+        "code": "Send(\"{F5}\")"
+    },
+    {
+        "name": "🌐 強制更新",
+        "code": "Send(\"^{F5}\")"
+    },
+    {
+        "name": "🌐 ブックマーク追加",
+        "code": "Send(\"^d\")"
+    },
+    {
+        "name": "🌐 履歴を開く",
+        "code": "Send(\"^h\")"
+    },
+    {
+        "name": "🌐 デベロッパーツール",
+        "code": "Send(\"{F12}\")"
+    },
+    {
+        "name": "📁 エクスプローラー",
+        "code": "Send(\"#e\")"
+    },
+    {
+        "name": "📁 新しいフォルダ",
+        "code": "Send(\"^+n\")"
+    },
+    {
+        "name": "📁 名前を変更",
+        "code": "Send(\"{F2}\")"
+    },
+    {
+        "name": "📁 削除",
+        "code": "Send(\"{Delete}\")"
+    },
+    {
+        "name": "📁 完全削除 (Shift+Del)",
+        "code": "Send(\"+{Delete}\")"
+    },
+    {
+        "name": "📁 プロパティ",
+        "code": "Send(\"!{Enter}\")"
+    },
+    {
+        "name": "📁 アドレスバーに移動",
+        "code": "Send(\"!d\")"
+    },
+    {
+        "name": "✂️ 切り取り",
+        "code": "Send(\"^x\")"
+    },
+    {
+        "name": "📋 コピー",
+        "code": "Send(\"^c\")"
+    },
+    {
+        "name": "📋 貼り付け",
+        "code": "Send(\"^v\")"
+    },
+    {
+        "name": "↩️ 元に戻す",
+        "code": "Send(\"^z\")"
+    },
+    {
+        "name": "↪️ やり直し",
+        "code": "Send(\"^y\")"
+    },
+    {
+        "name": "🔍 検索 (アプリ内)",
+        "code": "Send(\"^f\")"
+    },
+    {
+        "name": "🔍 置換",
+        "code": "Send(\"^h\")"
+    },
+    {
+        "name": "🔤 すべて選択",
+        "code": "Send(\"^a\")"
+    },
+    {
+        "name": "🔤 太字",
+        "code": "Send(\"^b\")"
+    },
+    {
+        "name": "🔤 斜体",
+        "code": "Send(\"^i\")"
+    },
+    {
+        "name": "🔤 下線",
+        "code": "Send(\"^u\")"
+    },
+    {
+        "name": "🖨️ 印刷",
+        "code": "Send(\"^p\")"
+    },
+    {
+        "name": "🔄 ウィンドウ切替 (Alt+Tab)",
+        "code": "Send(\"!{Tab}\")"
+    },
+    {
+        "name": "🔄 同じアプリ内で切替",
+        "code": "Send(\"!{Esc}\")"
+    },
+    {
+        "name": "❌ アプリを終了",
+        "code": "Send(\"!{F4}\")"
+    },
+    {
+        "name": "🔧 ファイル名を指定して実行",
+        "code": "Send(\"#r\")"
+    },
+    {
+        "name": "🔧 コマンドプロンプト",
+        "code": "Run(\"cmd.exe\")"
+    },
+    {
+        "name": "🔧 PowerShell",
+        "code": "Run(\"powershell.exe\")"
+    },
+    {
+        "name": "🔧 Windows Terminal",
+        "code": "Run(\"wt.exe\")"
+    },
+    {
+        "name": "📝 メモ帳",
+        "code": "Run(\"notepad.exe\")"
+    },
+    {
+        "name": "🎨 ペイント",
+        "code": "Run(\"mspaint.exe\")"
+    },
+    {
+        "name": "🧮 電卓",
+        "code": "Run(\"calc.exe\")"
+    },
+    {
+        "name": "📅 カレンダー",
+        "code": "Run(\"outlookcal:\")"
+    },
+    {
+        "name": "🔊 音量ミキサー",
+        "code": "Run(\"sndvol.exe\")"
+    },
+    {
+        "name": "🌐 YouTube",
+        "code": "Run(\"https://www.youtube.com\")"
+    },
+    {
+        "name": "🌐 Twitter/X",
+        "code": "Run(\"https://twitter.com\")"
+    },
+    {
+        "name": "🌐 GitHub",
+        "code": "Run(\"https://github.com\")"
+    },
+    {
+        "name": "🌐 ChatGPT",
+        "code": "Run(\"https://chat.openai.com\")"
+    },
+    {
+        "name": "📧 Gmail",
+        "code": "Run(\"https://mail.google.com\")"
+    },
+    {
+        "name": "📊 Google Drive",
+        "code": "Run(\"https://drive.google.com\")"
+    },
+    {
+        "name": "🗺️ Google Maps",
+        "code": "Run(\"https://maps.google.com\")"
+    },
+    {
+        "name": "📝 Google翻訳",
+        "code": "Run(\"https://translate.google.com\")"
+    },
+    {
+        "name": "⏰ タイマー (5分)",
+        "code": "Run(\"https://www.google.com/search?q=timer+5+minutes\")"
+    },
+    {
+        "name": "🔔 通知センター",
+        "code": "Send(\"#n\")"
+    },
+    {
+        "name": "🎤 音声入力",
+        "code": "Send(\"#h\")"
+    },
+    {
+        "name": "😀 絵文字パネル",
+        "code": "Send(\"#.\")"
+    },
+    {
+        "name": "🔒 画面ロック (即座)",
+        "code": "DllCall(\"user32\\\\LockWorkStation\")"
+    },
+    {
+        "name": "🔋 バッテリー節約モード",
+        "code": "Run(\"ms-settings:batterysaver\")"
+    },
+    {
+        "name": "🌙 夜間モード切替",
+        "code": "Run(\"ms-settings:nightlight\")"
+    },
+    {
+        "name": "📶 Wi-Fi設定",
+        "code": "Run(\"ms-settings:network-wifi\")"
+    },
+    {
+        "name": "🔊 サウンド設定",
+        "code": "Run(\"ms-settings:sound\")"
+    },
+    {
+        "name": "🖥️ ディスプレイ設定",
+        "code": "Run(\"ms-settings:display\")"
+    },
+    {
+        "name": "⌨️ キーボード設定",
+        "code": "Run(\"ms-settings:keyboard\")"
+    },
+    {
+        "name": "🖱️ マウス設定",
+        "code": "Run(\"ms-settings:mousetouchpad\")"
+    },
+    {
+        "name": "🎮 ゲームバー",
+        "code": "Send(\"#g\")"
+    },
+    {
+        "name": "🎬 画面録画開始/停止",
+        "code": "Send(\"#!r\")"
+    },
+    {
+        "name": "📍 拡大鏡",
+        "code": "Send(\"#+\")"
+    },
+    {
+        "name": "🔊 ナレーター",
+        "code": "Send(\"#^{Enter}\")"
+    },
+    {
+        "name": "━━━ 複合処理の例 ━━━",
+        "code": ""
+    },
+    {
+        "name": "🔍 ワード入力→Google検索",
+        "code": "result := InputBox(\"検索ワードを入力してください\", \"Google検索\")\nif result.Result = \"OK\"\n    Run(\"https://www.google.com/search?q=\" result.Value)"
+    },
+    {
+        "name": "🔍 ワード入力→YouTube検索",
+        "code": "result := InputBox(\"検索ワードを入力してください\", \"YouTube検索\")\nif result.Result = \"OK\"\n    Run(\"https://www.youtube.com/results?search_query=\" result.Value)"
+    },
+    {
+        "name": "🔍 ワード入力→Wikipedia検索",
+        "code": "result := InputBox(\"検索ワードを入力してください\", \"Wikipedia検索\")\nif result.Result = \"OK\"\n    Run(\"https://ja.wikipedia.org/wiki/\" result.Value)"
+    },
+    {
+        "name": "🔍 ワード入力→翻訳",
+        "code": "result := InputBox(\"翻訳したいテキストを入力してください\", \"Google翻訳\")\nif result.Result = \"OK\"\n    Run(\"https://translate.google.com/?text=\" result.Value)"
+    },
+    {
+        "name": "🔍 ワード入力→地図検索",
+        "code": "result := InputBox(\"場所を入力してください\", \"地図検索\")\nif result.Result = \"OK\"\n    Run(\"https://www.google.com/maps/search/\" result.Value)"
+    },
+    {
+        "name": "🔍 選択テキストをGoogle検索",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://www.google.com/search?q=\" A_Clipboard)"
+    },
+    {
+        "name": "📧 選択テキストをメール本文に",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"mailto:?body=\" A_Clipboard)"
+    },
+    {
+        "name": "💾 保存してウィンドウを閉じる",
+        "code": "Send(\"^s\")\nSleep(500)\nSend(\"!{F4}\")"
+    },
+    {
+        "name": "📋 コピー→新規メモ帳に貼り付け",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"notepad.exe\")\nSleep(800)\nSend(\"^v\")"
+    },
+    {
+        "name": "🌐 URLをコピーして新規タブで開く",
+        "code": "Send(\"^l\")\nSleep(50)\nSend(\"^c\")\nSleep(100)\nSend(\"^t\")\nSleep(200)\nSend(\"^v\")\nSend(\"{Enter}\")"
+    },
+    {
+        "name": "📸 スクショ→ペイントで編集",
+        "code": "Send(\"{PrintScreen}\")\nSleep(300)\nRun(\"mspaint.exe\")\nSleep(1000)\nSend(\"^v\")"
+    },
+    {
+        "name": "🔤 選択テキストを大文字に変換",
+        "code": "Send(\"^c\")\nSleep(100)\nA_Clipboard := StrUpper(A_Clipboard)\nSend(\"^v\")"
+    },
+    {
+        "name": "🔤 選択テキストを小文字に変換",
+        "code": "Send(\"^c\")\nSleep(100)\nA_Clipboard := StrLower(A_Clipboard)\nSend(\"^v\")"
+    },
+    {
+        "name": "📝 選択テキストの文字数をカウント",
+        "code": "Send(\"^c\")\nSleep(100)\nMsgBox(\"文字数: \" StrLen(A_Clipboard))"
+    },
+    {
+        "name": "🔄 選択テキストを反転",
+        "code": "Send(\"^c\")\nSleep(100)\nreversed := \"\"\nLoop Parse, A_Clipboard\n    reversed := A_String reversed\nA_Clipboard := reversed\nSend(\"^v\")"
+    },
+    {
+        "name": "🌐 選択テキストをTwitterで検索",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://twitter.com/search?q=\" A_Clipboard)"
+    },
+    {
+        "name": "🌐 選択テキストをYouTubeで検索",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://www.youtube.com/results?search_query=\" A_Clipboard)"
+    },
+    {
+        "name": "📚 選択テキストをWikipediaで検索",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://ja.wikipedia.org/wiki/\" A_Clipboard)"
+    },
+    {
+        "name": "🗺️ 選択テキストを地図で検索",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://www.google.com/maps/search/\" A_Clipboard)"
+    },
+    {
+        "name": "💬 選択テキストを翻訳",
+        "code": "Send(\"^c\")\nSleep(100)\nRun(\"https://translate.google.com/?text=\" A_Clipboard)"
+    },
+    {
+        "name": "🎵 音量を50%に設定",
+        "code": "SoundSetVolume(50)\nMsgBox(\"音量を50%に設定しました\")"
+    },
+    {
+        "name": "🔊 音量を徐々に上げる",
+        "code": "Loop 10 {\n    SoundSetVolume(\"+5\")\n    Sleep(100)\n}"
+    },
+    {
+        "name": "🔉 音量を徐々に下げる",
+        "code": "Loop 10 {\n    SoundSetVolume(\"-5\")\n    Sleep(100)\n}"
+    },
+    {
+        "name": "⏰ 5秒後に通知",
+        "code": "Sleep(5000)\nMsgBox(\"5秒経過しました!\", \"タイマー\")"
+    },
+    {
+        "name": "📊 システム情報を表示",
+        "code": "info := \"PC名: \" A_ComputerName \"`n\"\ninfo .= \"ユーザー名: \" A_UserName \"`n\"\ninfo .= \"OS: \" A_OSVersion \"`n\"\ninfo .= \"画面解像度: \" A_ScreenWidth \"x\" A_ScreenHeight\nMsgBox(info, \"システム情報\")"
+    },
+    {
+        "name": "🪟 全ウィンドウを整列 (左右2分割)",
+        "code": "Send(\"#Left\")\nSleep(500)\nSend(\"!{Tab}\")\nSleep(300)\nSend(\"#Right\")"
+    },
+    {
+        "name": "🔄 ウィンドウを3回点滅",
+        "code": "Loop 3 {\n    WinSetTransparent(100, \"A\")\n    Sleep(200)\n    WinSetTransparent(255, \"A\")\n    Sleep(200)\n}"
+    },
+    {
+        "name": "📁 デスクトップに日付フォルダ作成",
+        "code": "folderName := FormatTime(, \"yyyy-MM-dd\")\nDirCreate(A_Desktop \"\\\\\" folderName)\nRun(A_Desktop \"\\\\\" folderName)"
+    },
+    {
+        "name": "📋 クリップボード履歴を保存",
+        "code": "oldClip := A_Clipboard\nSleep(100)\nFileAppend(oldClip \"`n━━━━━━`n\", A_Desktop \"\\\\clipboard_history.txt\")\nMsgBox(\"クリップボードを保存しました\")"
+    },
+    {
+        "name": "🎨 ランダムな色コードを生成",
+        "code": "Random, r, 0, 255\nRandom, g, 0, 255\nRandom, b, 0, 255\ncolorCode := Format(\"#{:02X}{:02X}{:02X}\", r, g, b)\nA_Clipboard := colorCode\nMsgBox(\"色コード: \" colorCode \"`n(クリップボードにコピーしました)\")"
+    },
+    {
+        "name": "🔐 パスワード生成 (8文字)",
+        "code": "chars := \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%\"\npassword := \"\"\nLoop 8 {\n    Random, pos, 1, StrLen(chars)\n    password .= SubStr(chars, pos, 1)\n}\nA_Clipboard := password\nMsgBox(\"パスワード: \" password \"`n(クリップボードにコピーしました)\")"
+    },
+    {
+        "name": "📅 今日の日付と曜日を表示",
+        "code": "today := FormatTime(, \"yyyy年MM月dd日 (ddd)\")\nMsgBox(today, \"今日の日付\")"
+    },
+    {
+        "name": "⏱️ ストップウォッチ (10秒)",
+        "code": "startTime := A_TickCount\nSleep(10000)\nelapsed := (A_TickCount - startTime) / 1000\nMsgBox(\"経過時間: \" elapsed \"秒\")"
+    },
+    {
+        "name": "🖼️ 壁紙をランダムに変更 (デモ)",
+        "code": "; 実際には画像パスを指定\nMsgBox(\"壁紙変更機能のデモです`n実際にはDllCall等で壁紙を変更します\")"
+    },
+    {
+        "name": "🎯 マウスカーソルを画面中央に移動",
+        "code": "centerX := A_ScreenWidth / 2\ncenterY := A_ScreenHeight / 2\nMouseMove(centerX, centerY, 50)"
+    }
+]

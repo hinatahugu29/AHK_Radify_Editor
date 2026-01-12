@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radify Menu Editor - ユーザーマニュアル</title>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --accent-color: #4a9eff;
+            --card-bg: #2d2d2d;
+            --code-bg: #1e1e1e;
+            --border-color: #404040;
+            --highlight: #ffcc00;
+        }
+        body {
+            font-family: "Segoe UI", "Meiryo", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2, h3 { color: var(--accent-color); }
+        h1 { border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+        h2 { 
+            margin-top: 40px; 
+            border-left: 5px solid var(--accent-color); 
+            padding-left: 15px; 
+            background: rgba(74, 158, 255, 0.05); 
+            padding-top: 8px; 
+            padding-bottom: 8px; 
+        }
+        h3 { margin-top: 25px; color: #8bc1ff; }
+        .container { max-width: 960px; margin: 0 auto; }
+        .card { background-color: var(--card-bg); padding: 25px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--border-color); }
+        
+        code { background-color: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-family: Consolas, monospace; color: #ff9e64; font-size: 0.9em; }
+        pre { background-color: var(--code-bg); padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid var(--border-color); color: #dcdccc; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        
+        .btn { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #444; border: 1px solid #666; font-size: 0.85em; color: white; }
+        .key { display: inline-block; padding: 2px 6px; border-radius: 4px; background: #333; border: 1px solid #555; font-family: monospace; box-shadow: 0 2px 0 #111; color: #eee; font-size: 0.85em; }
+        
+        .note { background-color: #3d3d29; border-left: 5px solid #ffff00; padding: 15px; margin: 15px 0; border-radius: 0 4px 4px 0; }
+        .tip { background-color: #1a3a1a; border-left: 5px solid #2d5f2d; padding: 15px; margin: 15px 0; border-radius: 0 4px 4px 0; }
+        .warning { background-color: #3a1a1a; border-left: 5px solid #ff4444; padding: 15px; margin: 15px 0; border-radius: 0 4px 4px 0; }
+        
+        nav { 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+            position: sticky; 
+            top: 20px; 
+            z-index: 100; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            border: 1px solid var(--accent-color);
+        }
+        nav a { color: var(--text-color); text-decoration: none; font-weight: bold; padding: 5px 10px; border-radius: 4px; transition: background 0.2s; }
+        nav a:hover { background: var(--accent-color); color: #000; }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            border: 2px dashed #444;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Radify Menu Editor <span style="font-size: 0.6em; color: #888;">Modular Edition</span></h1>
+        
+        <p>
+            AutoHotkey v2 用のリングメニューライブラリ <strong>"Radify"</strong> の設定を、直感的なGUIで作成・編集するためのツールです。<br>
+            複雑なJSONや配列を手書きする必要なく、ドラッグ＆ドロップでメニューを構築し、すぐに実行可能なスクリプトを生成できます。
+        </p>
+
+        <nav>
+            <a href="#setup">🚀 導入と起動</a>
+            <a href="#basics">📋 基本操作</a>
+            <a href="#editing">✏️ アイテム編集</a>
+            <a href="#features">✨ 便利機能</a>
+            <a href="#submenus">📂 サブメニュー</a>
+            <a href="#export">💾 生成と保存</a>
+        </nav>
+
+        <section id="setup">
+            <h2>🚀 導入と起動</h2>
+            <div class="card">
+                <h3>必須環境</h3>
+                <ul>
+                    <li><strong>Windows 10 / 11</strong></li>
+                    <li><strong>Python 3.x</strong> (CustomTkinter等のライブラリが必要)</li>
+                    <li><strong>AutoHotkey v2.0+</strong> (生成されたスクリプトの実行に必要)</li>
+                </ul>
+                <h3>起動方法</h3>
+                <p>
+                    <code>AHK_Radify_Editor_Modular</code> フォルダ内の <code>main.py</code> を実行してください。
+                </p>
+                <div class="tip">
+                    <strong>ヒント:</strong> 初回起動時、必要な設定ファイル (<code>menu_config.json</code>) がない場合は自動的に作成されます。
+                </div>
+            </div>
+        </section>
+
+        <section id="basics">
+            <h2>📋 基本操作</h2>
+            <div class="feature-grid">
+                <div class="card">
+                    <h3>画面構成</h3>
+                    <ul>
+                        <li><strong>左パネル (メニュー構造)</strong>: <br>ツリー形式でメニュー（リング、サブメニュー）を管理します。ドラッグ＆ドロップでアイテムの並び替えが可能です。</li>
+                        <li><strong>中央パネル (プレビュー)</strong>: <br>実際のメニューの見た目をリアルタイムで確認できます。ズーム操作も可能です。</li>
+                        <li><strong>右パネル (エディタ)</strong>: <br>選択したアイテムの詳細（テキスト、アイコン、動作）を編集します。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>ショートカットキー</h3>
+                    <ul>
+                        <li><span class="key">Ctrl</span> + <span class="key">S</span> : 設定の上書き保存</li>
+                        <li><span class="key">Ctrl</span> + <span class="key">Z</span> : 元に戻す (Undo)</li>
+                        <li><span class="key">Ctrl</span> + <span class="key">Y</span> : やり直し (Redo)</li>
+                        <li><span class="key">Mouse Wheel</span> : プレビューのズーム (中央パネル上)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>構造の編集</h3>
+                <p>左側のボタンを使って構造を変更します。</p>
+                <ul>
+                    <li><span class="btn">➕ リング追加</span> : メインメニューまたはサブメニューに新しいリング（円）を追加します。</li>
+                    <li><span class="btn">➕ アイテム追加</span> : 選択中のリングに新しいボタンを追加します。</li>
+                    <li><span class="btn">🗑️ 削除</span> : 選択したアイテムやリングを削除します。複数選択も可能です。</li>
+                </ul>
+                <div class="note">
+                    <strong>ポイント:</strong> ツリー上でアイテムをドラッグ＆ドロップすると、リング間やサブメニュー間での移動が簡単に行えます。
+                </div>
+            </div>
+        </section>
+
+        <section id="editing">
+            <h2>✏️ アイテム編集</h2>
+            <p>アイテムを選択すると右側のパネルで詳細を設定できます。変更は即座にプレビューに反映されます (Live Sync)。</p>
+
+            <div class="card">
+                <h3>1. アイコン設定 (🖼️)</h3>
+                <p>メニューに表示する画像を設定します。</p>
+                <ul>
+                    <li><strong>ドロップダウン</strong>: <code>images</code> フォルダにある画像から選択。</li>
+                    <li><span class="btn">📁 追加</span>: PC内の画像ファイルを取り込みます。</li>
+                    <li><span class="btn">📷 取り込み</span>: <strong>画面キャプチャ機能</strong>です。範囲選択してアイコンとして保存できます。</li>
+                    <li><span class="btn">⚙️ 管理</span>: 不要な画像の削除やリネームを行えます。</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>2. クリック動作 (🖱️)</h3>
+                <p>アイテムをクリックしたときに実行される AutoHotkey v2 コードを記述します。</p>
+                
+                <h4>基本パターン</h4>
+<pre>
+; URLを開く
+Run("https://google.com")
+
+; アプリを起動
+Run("notepad.exe")
+
+; キー送信 (Ctrl+C)
+Send("^c")
+</pre>
+                
+                <h4>高度な記述 (複数行対応)</h4>
+                <p>
+                    <code>if</code> 文などの複雑なロジックも記述可能です。エディタが自動的に <code>(*) => { ... }</code> ブロックとして処理します。
+                </p>
+<pre>
+if WinActive("ahk_exe chrome.exe") {
+    Send("^t") ; 新しいタブ
+} else {
+    Run("chrome.exe")
+}
+</pre>
+
+                <div class="tip">
+                    <strong>便利機能:</strong> <span class="btn">🔧 カスタム</span> ボタンを押すと、よく使うコードの<strong>テンプレートライブラリ</strong>が開きます。検索してワンクリックで挿入できます。
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>✨ 便利機能</h2>
+            <div class="feature-grid">
+                <div class="card">
+                    <h3>★ お気に入り機能</h3>
+                    <p>
+                        よく使うアイテム設定（アイコンとコマンドのセットなど）を「お気に入り」として保存できます。
+                        別のアイテムを選択して適用することで、瞬時に設定をコピーできます。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>🔄 バックアップと復元</h3>
+                    <p>
+                        保存のたびに自動的にバックアップが作成されます（最新10件）。
+                        間違えて保存してしまっても、<span class="btn">📂 バックアップ復元</span> から過去の状態に戻せます。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>📊 統計情報</h3>
+                    <p>
+                        メニュー全体のアイテム数や画像数を確認できます。大規模なメニューを作るときの管理に役立ちます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="submenus">
+            <h2>📂 サブメニューの活用</h2>
+            <p>アイテム数が多くなった場合は、サブメニュー（階層メニュー）を使用します。</p>
+
+            <div class="card">
+                <h3>作成手順</h3>
+                <ol>
+                    <li>左パネルの <span class="btn">➕ サブメニュー追加</span> で新しいサブメニュー枠を作成します。</li>
+                    <li>作成されたサブメニューにリングやアイテムを追加して編集します。</li>
+                    <li><strong>メインメニュー（親）</strong>に戻り、サブメニューを呼び出したいアイテムを選択します。</li>
+                    <li>右パネルの <strong>「📂 サブメニュー設定:」</strong> ドロップダウンから、作成したサブメニューを選択します。</li>
+                </ol>
+                <div class="note">
+                    これにより <code>submenu</code> プロパティが設定され、Radifyが自動的にサブメニュー展開を処理します。<br>
+                    ※ <code>click</code> 動作に <code>Radify.Show(...)</code> を書く古い方法も可能ですが、ドロップダウンからの設定（推奨）の方が高速です。
+                </div>
+            </div>
+        </section>
+
+        <section id="export">
+            <h2>💾 生成と保存</h2>
+            <div class="card">
+                <h3>AHKスクリプトの生成</h3>
+                <p>
+                    <span class="btn">💾 保存＆AHKコード生成</span> ボタンを押すと、現在の設定に基づいた <code>.ahk</code> ファイルが出力されます。
+                    生成されたファイルを実行するだけで、リングメニューが使用可能になります。
+                </p>
+                
+                <h3>単体パッケージ出力 (配布用)</h3>
+                <p>
+                    画面下部の <strong>「📦 単体パッケージとして出力」</strong> にチェックを入れて生成すると、以下のファイルがセットで出力されます：
+                </p>
+                <ul>
+                    <li>生成された <code>.ahk</code> スクリプト</li>
+                    <li><code>Lib</code> フォルダ (Gdipなどの必須ライブラリ)</li>
+                    <li><code>images</code> フォルダ (使用しているアイコン画像)</li>
+                    <li><code>Radify.ahk</code> (コアライブラリ)</li>
+                </ul>
+                <div class="tip">
+                    この機能を使えば、生成されたフォルダをそのまま別のPCにコピーするだけで動作します。
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 50px; text-align: center; color: #666; font-size: 0.9em; border-top: 1px solid #333; padding-top: 20px;">
+            <p>Generated by Radify Menu Editor</p>
+        </footer>
+    </div>
+</body>
+</html>

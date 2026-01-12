@@ -1,0 +1,192 @@
+{
+    "image_dir": "images",
+    "main_menu": [
+        {
+            "ring": 1,
+            "items": [
+                {
+                    "text": "URL",
+                    "tooltip": "URL",
+                    "click": "Run(\"https://grok.com/\")",
+                    "submenu": "URL"
+                },
+                {
+                    "text": "アプリ",
+                    "click": "LaunchOrActivate(\"Asr\", \"C:\\Asr\\Asr.exe\")",
+                    "tooltip": "アプリ",
+                    "submenu": "アプリ"
+                }
+            ]
+        }
+    ],
+    "submenus": {
+        "URL": [
+            {
+                "ring": 1,
+                "items": [
+                    {
+                        "text": "Grok",
+                        "click": "Run(\"https://grok.com/\")",
+                        "tooltip": "Grok",
+                        "image": "grok.png"
+                    },
+                    {
+                        "text": "Studio",
+                        "click": "Run(\"https://aistudio.google.com/app/apps\")",
+                        "tooltip": "Studio",
+                        "image": "Google_G.png"
+                    },
+                    {
+                        "text": "X",
+                        "click": "Run(\"https://x.com/home\")",
+                        "tooltip": "X",
+                        "image": "x-twitter.png",
+                        "submenu": "Git"
+                    },
+                    {
+                        "text": "Gemini",
+                        "click": "Run(\"https://gemini.google.com/app\")",
+                        "tooltip": "Gemini",
+                        "image": "Gemini.png"
+                    },
+                    {
+                        "text": "Superhive",
+                        "click": "Run(\"https://superhivemarket.com/creators/hugu29_works\")",
+                        "tooltip": "My Shop",
+                        "submenu": "Superhive"
+                    }
+                ]
+            },
+            {
+                "ring": "Ring 2",
+                "items": [
+                    {
+                        "text": "Grok_AHK",
+                        "click": "Run(\"https://grok.com/project/5fe150b9-1132-460e-9cc4-add8e1e68bd4?tab=conversations\")",
+                        "tooltip": "AHK",
+                        "image": "Grok.png"
+                    },
+                    {
+                        "text": "Grok_Blender",
+                        "click": "Run(\"https://grok.com/project/4150c1c9-8d97-4f88-9867-dfffffd7641f?tab=conversations\")",
+                        "tooltip": "Blender",
+                        "image": "Grok.png"
+                    },
+                    {
+                        "text": "キャンセル",
+                        "click": "CloseMenu",
+                        "tooltip": "キャンセル"
+                    },
+                    {
+                        "text": "Git",
+                        "click": "Run(\"https://superhivemarket.com/creators/hugu29_works\")",
+                        "tooltip": "Git",
+                        "submenu": "Git",
+                        "image": "folder.png"
+                    }
+                ]
+            }
+        ],
+        "アプリ": [
+            {
+                "ring": 1,
+                "items": [
+                    {
+                        "text": "zen",
+                        "click": "LaunchOrActivate(\"Zen\", \"zen.exe\")",
+                        "tooltip": "zen"
+                    },
+                    {
+                        "text": "キャンセル",
+                        "click": "CloseMenu",
+                        "tooltip": "キャンセル"
+                    },
+                    {
+                        "text": "Asr",
+                        "click": "LaunchOrActivate(\"Asr\", \"C:\\Asr\\Asr.exe\")",
+                        "tooltip": "zen"
+                    },
+                    {
+                        "text": "Antigravity",
+                        "click": "LaunchOrActivate(\"Antigravity\", \"C:\\Users\\hinat\\AppData\\Local\\Programs\\Antigravity\\Antigravity.exe\")",
+                        "tooltip": "Antigravity",
+                        "image": "Antigravity.png"
+                    }
+                ]
+            }
+        ],
+        "Superhive": [
+            {
+                "ring": 1,
+                "items": [
+                    {
+                        "text": "Affiliate",
+                        "click": "Run(\"https://superhivemarket.com/affiliate\")",
+                        "tooltip": "Affiliate"
+                    },
+                    {
+                        "text": "Top",
+                        "click": "Run(\"https://superhivemarket.com/creators/hugu29_works\")",
+                        "tooltip": "My Shop"
+                    },
+                    {
+                        "text": "Payout",
+                        "click": "Run(\"https://superhivemarket.com/creator/payouts\")",
+                        "tooltip": "Payout"
+                    },
+                    {
+                        "text": "Dashboard",
+                        "click": "Run(\"https://superhivemarket.com/creator/dashboard\")",
+                        "tooltip": "Dashboard"
+                    },
+                    {
+                        "text": "キャンセル",
+                        "click": "CloseMenu",
+                        "tooltip": "キャンセル"
+                    }
+                ]
+            }
+        ],
+        "Git": [
+            {
+                "ring": 1,
+                "items": [
+                    {
+                        "text": "GitHub",
+                        "click": "Run(\"https://github.com/hinatahugu29\")",
+                        "tooltip": "GitHub",
+                        "image": "windows-terminal.png"
+                    },
+                    {
+                        "text": "Read The Docs",
+                        "click": "Run(\"https://app.readthedocs.org/dashboard/\")",
+                        "tooltip": "Read The Docs",
+                        "image": "windows-terminal.png"
+                    }
+                ]
+            }
+        ]
+    },
+    "menu_options": {
+        "skin": "Default",
+        "EnableGlow": true,
+        "itemSize": 60,
+        "ringSpacing": 80,
+        "menu_name": "TEST",
+        "trigger_type": "r_drag",
+        "trigger_key": "RButton",
+        "appearance_mode": "Dark",
+        "gui_font_family": "Arial",
+        "gui_font_size": 12
+    },
+    "favorites": [
+        {
+            "name": "キャンセル",
+            "data": {
+                "text": "キャンセル",
+                "click": "CloseMenu",
+                "tooltip": "キャンセル"
+            }
+        }
+    ]
+}

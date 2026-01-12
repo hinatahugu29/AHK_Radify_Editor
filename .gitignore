@@ -1,0 +1,53 @@
+# Python関連
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# 仮想環境
+venv/
+env/
+ENV/
+
+# バックアップファイル
+backups/
+*.bak
+*.backup
+*.old
+
+# OS関連
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEとエディタ
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# アーカイブファイル
+*.zip
+*.rar
+*.7z
+
+# ログファイル
+*.log
+
+# 一時ファイル
+*.tmp
+temp/
+tmp/
+
+# テキストバージョンの重複ファイル
+*.txt
+!requirements.txt
+
+# ユーザー設定（必要に応じて除外）
+# menu_config.json

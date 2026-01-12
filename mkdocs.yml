@@ -1,0 +1,86 @@
+site_name: Radify Menu Editor ドキュメント
+site_description: AutoHotkey v2製リングメニューを完全GUI化する統合開発環境
+site_author: hinatahugu29
+site_url: https://ahk-radify-editor.readthedocs.io/
+
+repo_name: hinatahugu29/AHK_Radify_Editor
+repo_url: https://github.com/hinatahugu29/AHK_Radify_Editor
+
+theme:
+  name: material
+  language: ja
+  palette:
+    # ライトモード
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # ダークモード
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: ja
+
+nav:
+  - ホーム: index.md
+  - はじめに:
+      - インストール: getting-started/installation.md
+      - クイックスタート: getting-started/quickstart.md
+  - 使い方ガイド:
+      - 基本操作: user-guide/basic-usage.md
+      - メニュー構造の編集: user-guide/editing-structure.md
+      - アクションの設定: user-guide/actions.md
+      - アイコンとビジュアル: user-guide/icons-visuals.md
+      - スクリプト出力: user-guide/export.md
+  - リファレンス:
+      - 設定ファイル形式: reference/config-format.md
+      - テンプレート: reference/templates.md
+      - モジュール構成: reference/modules.md
+  - 高度な使い方:
+      - カスタムアクション: advanced/custom-actions.md
+      - 複数メニューの管理: advanced/multiple-menus.md
+      - トラブルシューティング: advanced/troubleshooting.md
+  - 技術仕様: technical-spec.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hinatahugu29

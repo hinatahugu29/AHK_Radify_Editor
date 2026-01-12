@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radify Menu Editor - 技術仕様書</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #00bcd4;
+            --secondary-accent: #ff4081;
+            --card-bg: #1e1e1e;
+            --code-bg: #262626;
+            --border-color: #333;
+            --success-color: #4caf50;
+        }
+
+        body {
+            font-family: "Segoe UI", "Meiryo", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--accent-color);
+            font-weight: 300;
+        }
+
+        h1 {
+            border-bottom: 3px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            margin-top: 50px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 20px;
+            background: linear-gradient(90deg, rgba(0, 188, 212, 0.1) 0%, transparent 100%);
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #b2ebf2;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        code {
+            background-color: var(--code-bg);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: "Fira Code", Consolas, monospace;
+            color: var(--secondary-accent);
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #444;
+            color: #a9b7c6;
+            font-size: 0.9em;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .badge-py {
+            background: #3776ab;
+            color: white;
+        }
+
+        .badge-ahk {
+            background: #95d500;
+            color: black;
+        }
+
+        .badge-json {
+            background: #f0db4f;
+            color: black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+
+        th,
+        td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #252525;
+            color: var(--accent-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .diagram {
+            background: #222;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            color: #888;
+            border: 1px dashed #444;
+            line-height: 1.2;
+            margin: 20px 0;
+        }
+
+        .module-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+
+        .module-item {
+            border-left: 3px solid var(--secondary-accent);
+            padding-left: 15px;
+            margin-bottom: 15px;
+        }
+
+        .module-item strong {
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        .module-item p {
+            margin: 0;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        nav {
+            background: #252525;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            padding-bottom: 2px;
+        }
+
+        nav a:hover {
+            border-bottom-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Radify Menu Editor (Modular) <br><span style="font-size: 0.5em; color: #666;">Technical Specification &
+                Architecture</span></h1>
+
+        <nav>
+            <a href="#overview">概要 & 技術スタック</a>
+            <a href="#architecture">モジュールアーキテクチャ</a>
+            <a href="#data-structure">データ構造 (JSON)</a>
+            <a href="#ahk-generation">AHKコード生成仕様</a>
+            <a href="#future">拡張性</a>
+        </nav>
+
+        <section id="overview">
+            <h2>1. 概要 & 技術スタック</h2>
+            <div class="card">
+                <p>
+                    本アプリケーションは、AutoHotkey v2用の円形メニューライブラリ "Radify" の設定ファイルおよび起動スクリプトを生成するためのGUIエディタです。<br>
+                    長期的な保守性と拡張性を確保するため、機能を複数のモジュールに分割した設計（Modular Design）を採用しています。
+                </p>
+                <table>
+                    <tr>
+                        <th>コンポーネント</th>
+                        <th>技術 / バージョン</th>
+                        <th>備考</th>
+                    </tr>
+                    <tr>
+                        <td><strong>言語</strong></td>
+                        <td><span class="badge badge-py">Python 3.x</span></td>
+                        <td>コアロジックおよびGUI</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GUIフレームワーク</strong></td>
+                        <td>CustomTkinter</td>
+                        <td>モダンなダークモードUIの実装</td>
+                    </tr>
+                    <tr>
+                        <td><strong>画像処理</strong></td>
+                        <td>Pillow (PIL)</td>
+                        <td>アイコンのリサイズ、プレビュー描画、画面キャプチャ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>設定保存</strong></td>
+                        <td><span class="badge badge-json">JSON</span></td>
+                        <td>メニュー構造、アプリケーション設定</td>
+                    </tr>
+                    <tr>
+                        <td><strong>出力ターゲット</strong></td>
+                        <td><span class="badge badge-ahk">AutoHotkey v2</span></td>
+                        <td>生成されたスクリプトの実行環境</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="architecture">
+            <h2>2. モジュールアーキテクチャ</h2>
+            <p>
+                モノリシックな単一ファイルから、機能ごとの責務に基づいたモジュール構成へリファクタリングされました。<br>
+                エントリーポイントは <code>main.py</code> であり、<code>modules</code> パッケージ内のクラスをMixinとして継承することで、機能を集約しています。
+            </p>
+
+            <div class="diagram">
+                AHK_Radify_Editor_Modular/
+                ├── main.py [Entry Point] アプリ起動、RadifyMenuEditorクラスのインスタンス化
+                ├── menu_config.json [Data] 永続化された設定データ
+                ├── templates.json [Data] ユーザー定義のコードテンプレート
+                └── modules/ [Package] 機能モジュール群（Mixin設計）
+                ├── __init__.py
+                ├── core.py [Core] RadifyMenuEditorクラス定義（継承の親）、初期化処理
+                ├── ui_setup.py [View] GUIの構築、ウィジェットの配置（左・中・右パネル）
+                ├── actions.py [Controller] ツリー操作、アイテム追加・削除・移動ロジック
+                ├── file_io.py [Model/IO] 設定のLoad/Save、AHKコード生成ロジック
+                ├── preview.py [View] Canvasへのプレビュー描画、ズーム処理
+                ├── images.py [Util] 画像管理、キャプチャ機能、キャッシュ
+                ├── dialogs.py [View] 設定画面、統計、お気に入りなどのサブウィンドウ
+                └── utils.py [Util] 矩形選択オーバーレイなどの汎用ツールクラス
+            </div>
+
+            <div class="card">
+                <h3>Mixin設計の採用</h3>
+                <p>
+                    <code>RadifyMenuEditor</code> クラスは、各モジュールのMixinクラスを多重継承しています。<br>
+                    これにより、各モジュールで定義されたメソッド（例: <code>self.save_config()</code> や <code>self.draw_preview()</code>）を、
+                    <code>self</code> を通じて相互に呼び出すことが可能です。
+                </p>
+                <pre>
+# modules/core.py の疑似コード
+class RadifyMenuEditor(CTk, UISetupMixin, PreviewMixin, FileIOMixin, ActionsMixin, ...):
+    def __init__(self):
+        super().__init__()
+        self.load_config()  # FileIOMixin
+        self.build_ui()     # UISetupMixin
+</pre>
+            </div>
+        </section>
+
+        <section id="data-structure">
+            <h2>3. 設定データ構造 (JSON)</h2>
+            <div class="card">
+                <p><code>menu_config.json</code> の主要なスキーマ定義です。</p>
+                <pre>
+{
+  "image_dir": "images",      // 画像リソースの保存フォルダ
+  
+  // メインメニューの構造（リングの配列）
+  "main_menu": [
+    {
+      "ring": 1,              // リング番号
+      "items": [
+        {
+          "text": "Google",   // 表示ラベル
+          "image": "g.png",   // アイコンファイル名
+          "click": "Run...",  // 実行コード (AHK)
+          "tooltip": "...",   // ツールチップ
+          "submenu": "Name"   // サブメニュー名（ある場合）
+        }
+      ]
+    }
+  ],
+
+  // サブメニューの定義（名前がキー）
+  "submenus": {
+    "SubName": [ ...メインと同じリング構造... ]
+  },
+
+  // アプリケーション全体の設定
+  "menu_options": {
+    "skin": "Default",
+    "itemSize": 60,
+    "trigger_type": "r_drag", // 起動トリガータイプ
+    "gui_font_family": "Meiryo UI"
+  },
+
+  // お気に入り（スニペット）
+  "favorites": [
+    { "name": "Copy", "data": { ...item object... } }
+  ]
+}
+</pre>
+            </div>
+        </section>
+
+        <section id="ahk-generation">
+            <h2>4. AHKコード生成仕様</h2>
+            <p>
+                <code>modules/file_io.py</code> 内の <code>generate_ahk_code_internal</code> メソッドが担当します。<br>
+                Pythonの辞書データを、AutoHotkey v2のオブジェクトリテラル構文に変換して出力します。
+            </p>
+
+            <div class="card module-list">
+                <div class="module-item">
+                    <strong>1. 複雑なクリック動作の変換 (Lambda)</strong>
+                    <p>
+                        クリック動作に改行や <code>;</code>、<code>{}</code> が含まれる場合、
+                        自動的にアロー関数ブロック <code>(*) => { ... }</code> に変換し、適切なインデントを付与します。
+                    </p>
+                </div>
+                <div class="module-item">
+                    <strong>2. サブメニューのインライン展開</strong>
+                    <p>
+                        Radifyライブラリの仕様に合わせ、サブメニュー定義は <code>RadifyMenus.MenuName := [...]</code> の形式で出力されます。<br>
+                        空のサブメニューアイテムに対しても、エラーを防ぐため最小限の空配列構造 <code>[ [], [] ]</code> を生成するフォールバックロジックが含まれています。
+                    </p>
+                </div>
+                <div class="module-item">
+                    <strong>3. 日本語文字エンコーディング</strong>
+                    <p>
+                        AHK v2で正確に日本語を扱うため、出力ファイルは必ず <strong>UTF-8 with BOM (utf-8-sig)</strong> で書き出されます。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="future">
+            <h2>5. 今後の拡張性</h2>
+            <div class="card">
+                <p>モジュール化されたことで、以下の機能追加が容易になっています。</p>
+                <ul>
+                    <li><strong>プラグインシステム:</strong> <code>modules</code> フォルダに新しいファイルを追加し、<code>core.py</code>
+                        でインポートするだけで機能追加が可能。</li>
+                    <li><strong>スキンエディタ:</strong> 現在はプレビューのみですが、スキンのJSON定義を編集するGUI専用のモジュールを作成可能。</li>
+                    <li><strong>多言語対応 (i18n):</strong> UIのテキストリソースを分離し、辞書ファイルから読み込む仕組みへの移行。</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer
+            style="margin-top: 50px; text-align: center; color: #555; border-top: 1px solid #333; padding-top: 20px;">
+            <p>Document Version 1.0 - Modular Edition</p>
+        </footer>
+    </div>
+</body>
+
+</html>
