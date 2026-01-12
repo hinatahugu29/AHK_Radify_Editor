@@ -60,59 +60,6 @@ plugins:
       lang:
         - en
         - ja
-  - i18n:
-      docs_structure: suffix
-      fallback_to_default: true
-      reconfigure_material: true
-      reconfigure_search: true
-      languages:
-        - locale: en
-          default: true
-          name: English
-          build: true
-          nav_translations:
-            Home: Home
-            Getting Started: Getting Started
-            Installation: Installation
-            Quick Start: Quick Start
-            User Guide: User Guide
-            Basic Usage: Basic Usage
-            Editing Structure: Editing Menu Structure
-            Actions: Action Settings
-            Icons & Visuals: Icons & Visuals
-            Export: Script Export
-            Reference: Reference
-            Config Format: Configuration File Format
-            Templates: Templates
-            Modules: Module Structure
-            Advanced: Advanced Usage
-            Custom Actions: Custom Actions
-            Multiple Menus: Managing Multiple Menus
-            Troubleshooting: Troubleshooting
-            Technical Spec: Technical Specifications
-        - locale: ja
-          name: 日本語
-          build: true
-          nav_translations:
-            Home: ホーム
-            Getting Started: はじめに
-            Installation: インストール
-            Quick Start: クイックスタート
-            User Guide: 使い方ガイド
-            Basic Usage: 基本操作
-            Editing Structure: メニュー構造の編集
-            Actions: アクションの設定
-            Icons & Visuals: アイコンとビジュアル
-            Export: スクリプト出力
-            Reference: リファレンス
-            Config Format: 設定ファイル形式
-            Templates: テンプレート
-            Modules: モジュール構成
-            Advanced: 高度な使い方
-            Custom Actions: カスタムアクション
-            Multiple Menus: 複数メニューの管理
-            Troubleshooting: トラブルシューティング
-            Technical Spec: 技術仕様
 
 nav:
   - Home: index.md
@@ -136,13 +83,6 @@ nav:
   - Technical Spec: technical-spec.md
 
 extra:
-  alternate:
-    - name: English
-      link: /en/
-      lang: en
-    - name: 日本語
-      link: /ja/
-      lang: ja
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/hinatahugu29

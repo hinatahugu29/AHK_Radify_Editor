@@ -50,13 +50,18 @@ pip install -r requirements.txt
 python main.py
 ```
 
-## 📚 ドキュメント
+## 📚 Documentation
 
-詳細なドキュメントは [Read the Docs](https://ahk-radify-editor.readthedocs.io/) で公開しています。
+Comprehensive documentation is available on [Read the Docs](https://ahk-radify-editor.readthedocs.io/).
 
-- [使い方ガイド (HOWTO)](HOWTO.html)
-- [技術仕様 (TECH_SPEC)](TECH_SPEC.html)
-- [紹介記事](Radify_Editor_Introduction.md)
+**Available in multiple languages:**
+- **English**: Full documentation available as `.en.md` files
+- **日本語**: 完全な日本語ドキュメントが `.ja.md` ファイルとして利用可能
+
+**Documentation Contents:**
+- [Installation Guide (HOWTO)](HOWTO.html)
+- [Technical Specifications (TECH_SPEC)](TECH_SPEC.html)
+- [Introduction Article](Radify_Editor_Introduction.md)
 
 ## 💡 使い方
 
