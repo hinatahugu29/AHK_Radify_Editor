@@ -59,9 +59,9 @@ Comprehensive documentation is available on [Read the Docs](https://ahk-radify-e
 - **日本語**: 完全な日本語ドキュメントが `.ja.md` ファイルとして利用可能
 
 **Documentation Contents:**
-- [Installation Guide (HOWTO)](HOWTO.html)
-- [Technical Specifications (TECH_SPEC)](TECH_SPEC.html)
-- [Introduction Article](Radify_Editor_Introduction.md)
+- [Installation Guide (HOWTO)](docs/HOWTO.html)
+- [Technical Specifications (TECH_SPEC)](docs/TECH_SPEC.html)
+- [Introduction Article](docs/Radify_Editor_Introduction.md)
 
 ## 💡 使い方
 
